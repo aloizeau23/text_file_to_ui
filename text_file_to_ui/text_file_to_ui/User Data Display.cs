@@ -31,6 +31,21 @@ namespace text_file_to_ui
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = openFileDialog.FileName;
+                // Read all lines
+                string[] lines = File.ReadAllLines(filePath);
+
+                foreach (string line in lines)
+                {
+                    // Seperate Data Name and their Value
+                    string[] parts = line.Split('=');
+
+                    if (parts.Length == 2)
+                    {
+                        string Name = parts[0].Trim();
+                        string value = parts[1].Trim();
+
+                    }
+                }
             }
         }
 
