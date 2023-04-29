@@ -33,7 +33,7 @@ namespace text_file_to_ui
                 string filePath = openFileDialog.FileName;
                 // Read all lines
                 string[] lines = File.ReadAllLines(filePath);
-                
+                int add1 = 0;
                 foreach (string line in lines)
                 {
                     // Seperate Data Name and their Value
@@ -69,10 +69,26 @@ namespace text_file_to_ui
                                 break;
                             case "File accessed times":
                                 textBox8.Text = value;
+                                int.TryParse(value, out add1);
+                                add1++;
                                 break;
                         }
                     }
                 }
+                // Update of the line File accessed times with incrementation
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    string[] parts = lines[i].Split('=');
+
+                    if (parts.Length == 2 && parts[0].Trim() == "File accessed times")
+                    {
+                        lines[i] = "File accessed times=" + add1.ToString();
+                        break;
+                    }
+                }
+
+                // Update of the file for writeing the incrementation
+                File.WriteAllLines(filePath, lines);
             }
         }
 
