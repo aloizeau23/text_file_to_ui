@@ -26,7 +26,12 @@ namespace text_file_to_ui
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
 
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
