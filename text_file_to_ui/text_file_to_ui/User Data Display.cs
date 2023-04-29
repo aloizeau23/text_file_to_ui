@@ -33,7 +33,7 @@ namespace text_file_to_ui
                 string filePath = openFileDialog.FileName;
                 // Read all lines
                 string[] lines = File.ReadAllLines(filePath);
-
+                
                 foreach (string line in lines)
                 {
                     // Seperate Data Name and their Value
@@ -44,6 +44,33 @@ namespace text_file_to_ui
                         string Name = parts[0].Trim();
                         string value = parts[1].Trim();
 
+                        switch (Name)
+                        {
+                            case "Name":
+                                textBox1.Text = value;
+                                break;
+                            case "Surname":
+                                textBox2.Text = value;
+                                break;
+                            case "Year of birth":
+                                textBox3.Text = value;
+                                break;
+                            case "City of origin":
+                                textBox4.Text = value;
+                                break;
+                            case "Faculty":
+                                textBox5.Text = value;
+                                break;
+                            case "Role":
+                                textBox6.Text = value;
+                                break;
+                            case "Favorite course":
+                                textBox7.Text = value;
+                                break;
+                            case "File accessed times":
+                                textBox8.Text = value;
+                                break;
+                        }
                     }
                 }
             }
