@@ -66,6 +66,11 @@ namespace text_file_to_ui
                                 break;
                             case "Favorite course":
                                 textBox7.Text = value;
+                                label7.Text = "Favorite course";
+                                break;
+                            case "Department":
+                                textBox7.Text = value;
+                                label7.Text = "Department";
                                 break;
                             case "File accessed times":
                                 textBox8.Text = value;
